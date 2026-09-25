@@ -64,15 +64,13 @@ https://raw.githubusercontent.com/kellerlabs/assets/main/<repo>/models/<name>/ma
 
 ### Create (New Description)
 
-Use the `makerworld-description` agent to create a new `DESCRIPTION.md` from scratch:
+Create a new `DESCRIPTION.md` from scratch:
 
-1. Invoke the agent with a model name and target repo, e.g. `foot homeracker-exclusive`
-2. The agent interviews you for model details, verifies images in the assets repo, creates `DESCRIPTION.md`, enhances `CUSTOMIZATION.md` with images, and opens a PR
-3. Optionally publish with `md-to-mw.py` (see above)
+1. Gather the model details and verify images in the assets repository.
+2. Create `DESCRIPTION.md` and enhance `CUSTOMIZATION.md` with the verified images.
+3. Optionally publish with `md-to-mw.py` (see above).
 
 ## 📚 References
 
 - [image-hosting-assets-repo](decisions/image-hosting-assets-repo.md): why images live in a separate repo
-- `.claude/agents/makerworld-description.md`: agent for creating new descriptions
-- `.claude/skills/makerworld-description/SKILL.md`: skill for extracting existing descriptions
 - `cmd/export/md-to-mw.py`: conversion script

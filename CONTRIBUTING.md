@@ -2,8 +2,6 @@
 
 Thanks for your interest in contributing! Even getting this far is already worth a ton 🏋
 
-> 🤖 Using a coding agent? Point it at [AGENTS.md](AGENTS.md), the canonical instruction set for this repo (see [CLAUDE.md](CLAUDE.md) for example).
-
 ## 📦 Contribution Scope
 
 This repository contains the **HomeRacker Core** system. We accept **bugfixes and improvements to the core model** here.
@@ -248,7 +246,6 @@ configurator/     # TypeScript web configurator
 site/             # Astro site, renders this repo's READMEs
 docs/             # Style guide, workflows, and ADRs in docs/decisions/
 png_creation/     # Marketing render generation
-.claude/          # Agent config: skills/, rules/ (path-scoped guidelines), agents/
 .github/          # Workflows, composite actions, PR template
 bin/              # OpenSCAD binaries and libraries, created by `scadm install` (gitignored)
 ```
