@@ -14,11 +14,11 @@ How to manage MakerWorld model descriptions as git-tracked `DESCRIPTION.md` file
 
 ### Extract (MakerWorld → Git)
 
-Use the `makerworld-description` skill to extract a description from a MakerWorld model page:
+Extract a description from a MakerWorld model page:
 
-1. Provide the MakerWorld model URL
-2. The skill scrapes the page, downloads images to the **assets repo**, and creates `DESCRIPTION.md`
-3. Commit the `DESCRIPTION.md` to the source repo and images to `kellerlabs/assets`
+1. Open the MakerWorld model URL and copy the description into `DESCRIPTION.md`.
+2. Download the description images to the **assets repo** and replace their source URLs with the corresponding raw GitHub URLs.
+3. Commit `DESCRIPTION.md` to the source repo and the images to `kellerlabs/assets`.
 
 ### Publish (Git → MakerWorld)
 
@@ -37,18 +37,17 @@ This generates `DESCRIPTION.html` (gitignored). Open it in a browser, `Ctrl+A`, 
 
 ### Update (After Model Changes)
 
-Use the `makerworld-description` skill's **Update flow** to refresh a description after a release:
+Refresh a description after a release:
 
-1. Invoke the skill with a request like "update core description with latest changes"
-2. The skill reads `CHANGELOG.md`, filters model-relevant changes, and proposes edits
-3. Review the proposed changelog entries and feature bullet updates
-4. The skill checks the assets repo for new images and suggests placements
-5. Frontmatter gets an `updated: YYYY-MM-DD` field
-6. Publish with `md-to-mw.py` (see above)
+1. Read `CHANGELOG.md` and identify changes relevant to the model.
+2. Update the description's changelog entries and feature bullets.
+3. Check the assets repo for new images and add them where appropriate.
+4. Add or update the `updated: YYYY-MM-DD` frontmatter field.
+5. Publish with `md-to-mw.py` (see above).
 
 ## 📁 Image & Layout Formatting
 
-> ⚠️ **Cross-repo workflow**: This skill requires both the source repo and [`kellerlabs/assets`](https://github.com/kellerlabs/assets). Maintainers push images directly to `assets/main`. Outside collaborators must open a PR on the assets repo for image changes.
+> ⚠️ **Cross-repo workflow**: This process uses both the source repo and [`kellerlabs/assets`](https://github.com/kellerlabs/assets). Maintainers push images directly to `assets/main`. Outside collaborators must open a PR on the assets repo for image changes.
 
 Images are stored in **[kellerlabs/assets](https://github.com/kellerlabs/assets)**, not in the source repos.
 
@@ -64,15 +63,13 @@ https://raw.githubusercontent.com/kellerlabs/assets/main/<repo>/models/<name>/ma
 
 ### Create (New Description)
 
-Use the `makerworld-description` agent to create a new `DESCRIPTION.md` from scratch:
+Create a new `DESCRIPTION.md` from scratch:
 
-1. Invoke the agent with a model name and target repo, e.g. `foot homeracker-exclusive`
-2. The agent interviews you for model details, verifies images in the assets repo, creates `DESCRIPTION.md`, enhances `CUSTOMIZATION.md` with images, and opens a PR
-3. Optionally publish with `md-to-mw.py` (see above)
+1. Gather the model details and verify images in the assets repository.
+2. Create `DESCRIPTION.md` and enhance `CUSTOMIZATION.md` with the verified images.
+3. Optionally publish with `md-to-mw.py` (see above).
 
 ## 📚 References
 
 - [image-hosting-assets-repo](decisions/image-hosting-assets-repo.md): why images live in a separate repo
-- `.claude/agents/makerworld-description.md`: agent for creating new descriptions
-- `.claude/skills/makerworld-description/SKILL.md`: skill for extracting existing descriptions
 - `cmd/export/md-to-mw.py`: conversion script
